@@ -1,16 +1,16 @@
 version: 2
 jobs:
   build:
-    working_directory: ~/circleci-helloworld
+    working_directory: ~/node/circleci-helloworld
     docker:
-      - image: circleci/node:7.10
+      - image: circleci/node:4.8.2
     steps:
       - checkout
       - run:
           name: install-npm-wee
           command: npm install
       - run:
-          name: test
+          name: run-tests
           command: npm test
       - store_artifacts:
           path: test-results.xml
