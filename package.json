@@ -1,0 +1,28 @@
+{
+  "name": "circleci-helloworld",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha --reporter spec",
+    "start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rafaelcorreiapoli/circleci-helloworld.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rafaelcorreiapoli/circleci-helloworld/issues"
+  },
+  "homepage": "https://github.com/rafaelcorreiapoli/circleci-helloworld#readme",
+  "devDependencies": {
+    "chai": "^4.0.2",
+    "mocha": "^3.4.2",
+    "nyc": "^11.0.2"
+  },
+  "dependencies": {
+    "express": "^4.15.3"
+  }
+}
