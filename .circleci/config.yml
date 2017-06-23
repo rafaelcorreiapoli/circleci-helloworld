@@ -4,6 +4,27 @@
      working_directory: ~/node/circleci-helloworld
      docker:
        - image: circleci/node:7.10
+     environment:
+       NODE_ENV: test
      steps:
        - checkout
-       - run: echo "hello world"
+      - run:
+          name: update-npm
+          command: 'sudo npm install -g npm@latest'
+      - restore_cache:
+          key: dependency-cache-{{ checksum "package.json" }}
+      - run:
+          name: install-npm-wee
+          command: npm install
+      - save_cache:
+          key: dependency-cache-{{ checksum "package.json" }}
+          paths:
+            - .node_modules
+       - run:
+         name: test
+         command: npm test
+      - store_artifacts:
+          path: test-results.xml
+          prefix: tests
+      - store_test_results:
+          path: test-results.xml
